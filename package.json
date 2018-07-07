@@ -1,0 +1,46 @@
+{
+  "name": "use-less",
+  "version": "0.0.0",
+  "description": "helps with removing dead components",
+  "keywords": [
+    "clean",
+    "react",
+    "esnext",
+    "commonjs",
+    "dead code"
+  ],
+  "main": "dist/src/index.js",
+  "repository": "git@github.com:one19/use-less.git",
+  "author": "Drew Showalter <maelstroswim@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "pretest": "yarn build",
+    "test": "ava dist/test",
+    "lint": "eslint . --fix",
+    "prepush": "snyk test && yarn test",
+    "precommit": "yarn build && lint-staged",
+    "build": "parcel build -o dist/index.js",
+    "coverage": "nyc ava dist/test && nyc report --reporter=html",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4",
+    "parcel": "^1.9.4",
+    "prettier": "^1.12.1"
+  }
+}
