@@ -1,0 +1,6 @@
+src
+*.md
+*.txt
+*.js.map
+*.lock
+test
