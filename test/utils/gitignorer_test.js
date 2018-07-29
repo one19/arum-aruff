@@ -29,7 +29,7 @@ test.serial('tests instantiated things against a file path', t => {
   });
 
   const ignorer = new GitIgnorer();
-  t.true(ignorer.test('./node_modules'));
+  t.false(ignorer.test('./node_modules'));
 });
 test.serial('ignores hidden files by default', t => {
   mock({
@@ -37,7 +37,7 @@ test.serial('ignores hidden files by default', t => {
   });
 
   const ignorer = new GitIgnorer();
-  t.true(ignorer.test('.gitignore'));
+  t.false(ignorer.test('.gitignore'));
 });
 test.serial('ignores comments', t => {
   mock({
@@ -53,10 +53,11 @@ test.serial('ignores comments', t => {
   });
 
   const ignorer = new GitIgnorer();
+
   /* default hidden file ignore + the 4 valid strings in .gitignore */
   t.is(JSON.parse(JSON.stringify(ignorer)).gitignores.length, 5);
-  t.false(ignorer.test('./src/features/morphing-time.js'));
-  t.true(ignorer.test('./fleeb/gromble/screeble.map99'));
-  t.true(ignorer.test('./test/gitignorer-test.js'));
-  t.true(ignorer.test('.gitignore'));
+  t.true(ignorer.test('./src/features/morphing-time.js'));
+  t.false(ignorer.test('./fleeb/gromble/screeble.map99'));
+  t.false(ignorer.test('./test/gitignorer-test.js'));
+  t.false(ignorer.test('.gitignore'));
 });

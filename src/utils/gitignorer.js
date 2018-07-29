@@ -13,13 +13,25 @@ class GitIgnorer {
   gitignores = [/^\.\w+/i];
 
   constructor(path = '.') {
-    const contents = fs.readFileSync(`${path}/.gitignore`, {
-      encoding: 'utf8'
-    });
+    let contents = '';
+
+    try {
+      contents = fs.readFileSync(`${path}/.gitignore`, {
+        encoding: 'utf8'
+      });
+    } catch (err) {
+      console.error('unable to find .gitignore', err);
+    }
 
     contents
       .split(/(\n|\r)/gi)
-      .map(entry => entry.replace(/\s+/gi, ''))
+      .map(entry =>
+        entry
+          .replace('**', '')
+          .replace(/\s+/gi, '')
+          .replace(/\.+/g, '\\.')
+          .replace(/\*{1}/g, '.*')
+      )
       .filter(entry => entry[0] !== '#')
       .filter(Boolean)
       .forEach(entry => {
@@ -37,9 +49,9 @@ class GitIgnorer {
 
   test = filePath => {
     return this.gitignores.reduce((foundMatch, ignore) => {
-      if (ignore.test(filePath)) return true;
+      if (ignore.test(filePath)) return false;
       return foundMatch;
-    }, false);
+    }, true);
   };
 }
 
