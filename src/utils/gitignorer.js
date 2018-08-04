@@ -6,7 +6,7 @@ import { default as fs } from 'fs';
  *
  * @async
  * @function gitIgnorer
- * @param {string} [path=./] - root directory
+ * @param {string} [path=./] root directory
  * @returns {Promise} promise that resolves to a dir tree or breaks
  */
 class GitIgnorer {

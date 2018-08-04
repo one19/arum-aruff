@@ -14,7 +14,7 @@ const buildTree = path => {
  *
  * @async
  * @function traverseTree
- * @param {string} [path=.] - root directory
+ * @param {string} [path=.] root directory
  * @returns {Promise} promise that resolves to a dir tree or breaks
  */
 const traverseTree = async (path = '.', ignorer = () => {}) => {
