@@ -6,10 +6,9 @@ import fs from 'fs';
  * That way, if the import isn't from the prepopulated package.json
  * you can try and look into the tree for a virtual pathfile instead
  *
- * @async
  * @function depsPopulator
  * @param {string} [path=.] root directory
- * @returns {Promise} promise that resolves to a keyed object of deps with 0 as their import #
+ * @returns {object} keyed object of deps with 0 as their import #
  */
 export default (path = '.') => {
   const depsRegex = /dependencies/i;

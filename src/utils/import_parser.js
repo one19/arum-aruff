@@ -12,7 +12,6 @@ const COMMA_RE = /,/g;
  *    right now, we're just using # of imports/exports for simplicity
  *    this *will* miss things like a function getting exported but unused
  *
- * @async
  * @function parseImports
  * @param {string} [fileContents=.] complete file contents
  * @returns {[[string]]} array of array of strings
