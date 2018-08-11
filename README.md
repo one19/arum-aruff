@@ -10,8 +10,10 @@ Builds a tree of your app, and tells you what components/packages should/might b
 
 ### HOW TO RUN IT:
 ```sh
+  # if this fails on node10, swap to 8 for the install
   npm i -g arum-aruff
   cd SOME_PROJECT_FOLDER
+  # don't forget to swap back to node 10 when running it!
   arum-aruff
 ```
 
@@ -22,10 +24,11 @@ Builds a tree of your app, and tells you what components/packages should/might b
 ### TODO:
 1. `fsPromises` fail to work well with `package.json` files, refactoring when `mock-fs` works correctly would be nice.
 2. `package.json` deps that aren't imported anywhere reporting
-3. `CI` testing & `one19/project-status` integrations
 4. a happy little `svg` icon of a pupper and a glass of rum
 5. `export` strength mapping
 6. tracing imports & exports from file to function name
 7. Baller d3 web
 8. `_size` reporting for tree/single-file lines of code/bits
 9. parsing `test` configs or allowing to have a `-i` input to allow ignoring **any** regex
+10. promisify instead of using node10 promises fs because it's 1000% a beta technology yet
+11. Add node8 support once rightly promisified
