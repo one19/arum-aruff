@@ -29,7 +29,7 @@
     "precommit": "yarn build && lint-staged",
     "coverage": "nyc ava && nyc report --reporter=html",
     "prebuild": "rm -rf .cache bin dist coverage .nyc_output",
-    "build": "parcel build -o dist/index.js -t node index.js && ./shebang_it.js",
+    "build": "npx parcel build -o dist/index.js -t node index.js && ./shebang_it.js",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "engines": {
