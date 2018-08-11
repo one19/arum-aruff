@@ -10,8 +10,8 @@
  * @returns {[string]} simplified path from tree root to relative location
  */
 export default (projectFilePath, relativeFilePath) => {
-  const relativeImport = (relativeFilePath[0] || '').match(/^[.\/~]/);
-  if (!relativeImport) return relativeFilePath;
+  const localImport = (relativeFilePath[0] || '').match(/^[.\/~]/);
+  if (!localImport) return relativeFilePath;
 
   const returnPath = JSON.parse(JSON.stringify(projectFilePath)).slice(1);
 
