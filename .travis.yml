@@ -14,6 +14,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - npx nyc ava && npx nyc report --reporter=html
+  - npx nyc ava && npx nyc report --reporter=lcov
 after_success:
   - ./cc-test-reporter after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
