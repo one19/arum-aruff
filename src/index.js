@@ -26,9 +26,9 @@ export default async rootPath => {
 
   const analyzedTree = analyzeTree(fileTree, [(rootPath = '.')]);
 
-  const emptyFiles = findUnused(analyzedTree).filter(
-    e => !e.match('package.json')
-  );
+  const emptyFiles = findUnused(analyzedTree)
+    .filter(e => !e.match('package.json'))
+    .filter(e => !e.match('test'));
 
   if (emptyFiles.length > 0) {
     console.log('Unused files found:\n', JSON.stringify(emptyFiles, null, 2));

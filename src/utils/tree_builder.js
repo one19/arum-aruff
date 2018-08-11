@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import { default as GitIgnorer } from './gitignorer';
 
-const buildTree = async path => {
+const buildTree = path => {
   const ignorer = new GitIgnorer(path);
 
   return traverseTree(path, ignorer.test);
