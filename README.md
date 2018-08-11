@@ -1,6 +1,8 @@
 # ARUM-ARUFF
 
+[![Maintenance status](https://raw.githubusercontent.com/one19/project-status/master/cache/arum-aruff/maintained.svg?sanitize=true)](https://github.com/one19/project-status) [![published on npm!](https://raw.githubusercontent.com/one19/project-status/master/cache/arum-aruff/npm.svg?sanitize=true)](https://www.npmjs.com/package/arum-aruff)\
 [![Known Vulnerabilities](https://snyk.io/test/github/one19/arum-aruff/badge.svg)](https://snyk.io/test/github/one19/arum-aruff) [![Testing Status] [![Test Coverage](https://api.codeclimate.com/v1/badges/7655d8c0ae2f0ed87564/test_coverage)](https://codeclimate.com/github/one19/arum-aruff/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/7655d8c0ae2f0ed87564/maintainability)](https://codeclimate.com/github/one19/arum-aruff/maintainability)
+
 ---
 
 ### WHAT IT DO:
