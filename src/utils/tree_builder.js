@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import { default as GitIgnorer } from './gitignorer';
 
-const buildTree = path => {
+const buildTree = async path => {
   const ignorer = new GitIgnorer(path);
 
   return traverseTree(path, ignorer.test);
@@ -18,10 +18,10 @@ const buildTree = path => {
  * @returns {Promise} promise that resolves to a dir tree or breaks
  */
 const traverseTree = async (path = '.', ignorer = () => {}) => {
-  const stats = await fs.stat(`${path}/`);
+  const stats = await fs.stat(`${path}`);
 
   if (stats.isDirectory()) {
-    const subdirs = await fs.readdir(`${path}/`);
+    const subdirs = await fs.readdir(`${path}`);
 
     const filteredSubdirs = subdirs.filter(ignorer);
 

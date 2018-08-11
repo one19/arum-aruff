@@ -47,6 +47,7 @@ const analyzeTree = (fullTree, pathArray = [], treePortion = fullTree) => {
       }
 
       return treeNav.reduce((objectPart, pathVar, i) => {
+        if (!objectPart) return;
         // on the final location of the path traversal, assign imports weight
         if (i === treeNav.length - 1) {
           const partFileNames = Object.keys(objectPart);

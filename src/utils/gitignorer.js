@@ -1,4 +1,4 @@
-import { default as fs } from 'fs';
+import fs from 'fs';
 
 /**
  * Grabs a .gitignore file from root, constructs some regexes,
