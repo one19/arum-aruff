@@ -36,7 +36,7 @@ const traverseTree = async (path = '.', ignorer = () => {}) => {
       {}
     );
 
-    return { ...subTree, dir: true };
+    return { ...subTree, _isDir: true };
   }
 
   return {};

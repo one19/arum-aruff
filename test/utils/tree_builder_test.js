@@ -18,9 +18,9 @@ test.serial('creates object tree of a directory', async t => {
   const tree = await buildTree('./folder_bingo');
 
   t.deepEqual(tree, {
-    src: { dir: true, 'doSomething.js': {} },
+    src: { _isDir: true, 'doSomething.js': {} },
     'index.js': {},
-    dir: true
+    _isDir: true
   });
 });
 
@@ -34,7 +34,7 @@ test.serial('defaults to ./ when not given a dir', async t => {
 
   t.deepEqual(tree, {
     'index.js': {},
-    dir: true
+    _isDir: true
   });
 });
 
@@ -54,8 +54,8 @@ test.serial('ignores . & gitignored folders/files defined in ./', async t => {
   const tree = await buildTree();
 
   t.deepEqual(tree, {
-    fleeb: { plumbus: { dir: true }, dir: true },
+    fleeb: { plumbus: { _isDir: true }, _isDir: true },
     'index.js': {},
-    dir: true
+    _isDir: true
   });
 });
